@@ -1,0 +1,21 @@
+sdk: "/Users/dcohen/.rvm/gems/ruby-1.9.2-head/gems/rhodes-3.0.0"
+sdkversion: 3.0.0
+name: hut_mobile
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphonesimulator4.3
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.hut_mobile
+  BundleURLScheme: hut_mobile
+wp:
+  productid: '9088f7c0-6537-012e-5c7c-001ec2baced6'
+
+extensions: ["json", "another-extension"]

@@ -1,0 +1,28 @@
+<div class="pageTitle">
+  <h1>My Order</h1>
+</div>
+  
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :controller => :MenuItem, :action => :index %>">Add</a>
+  </div>
+</div>
+
+<div class="content">
+  <div style="background:#292929;color:#fff;text-align:center;width:100%;font-weight:bold">Total $<%=  @order.order_total %></div>
+  <ul style = "text-align: center">
+    <% @order.ordered_items.each do |ordered_item| %>
+        <li>
+          <a class = "flip" href="<%= url_for :controller => :OrderedItem, :action => :edit, :id => ordered_item.object %>">
+          <span class="title"><%= "#{ordered_item.name} ($#{ordered_item.total})" %></span></span>
+          </a>
+        </li>
+    <% end %>
+  </ul> 
+    <% if @order.ordered_items.size > 0 %>
+      <input type="submit" class="standardButton" value="Checkout"/><br />
+    <% end %>
+</div>

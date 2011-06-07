@@ -1,0 +1,37 @@
+<div class="pageTitle">
+  <h1>Edit <%= @ingredient.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @ingredient.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @ingredient.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @ingredient.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="ingredient[name]" class="fieldLabel">Name</label>
+            <input type="text" name="ingredient[name]" value="<%= @ingredient.name %>" <%= placeholder( "Name" ) %> />
+          </li>
+      
+          <li>
+            <label for="ingredient[description]" class="fieldLabel">Description</label>
+            <input type="text" name="ingredient[description]" value="<%= @ingredient.description %>" <%= placeholder( "Description" ) %> />
+          </li>
+      
+          <li>
+            <label for="ingredient[price]" class="fieldLabel">Price</label>
+            <input type="text" name="ingredient[price]" value="<%= @ingredient.price %>" <%= placeholder( "Price" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

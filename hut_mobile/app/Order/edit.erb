@@ -1,0 +1,42 @@
+<div class="pageTitle">
+  <h1>Edit <%= @order.customer_id %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @order.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @order.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @order.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="order[customer_id]" class="fieldLabel">Customer</label>
+            <input type="text" name="order[customer_id]" value="<%= @order.customer_id %>" <%= placeholder( "Customer" ) %> />
+          </li>
+      
+          <li>
+            <label for="order[pick_up_at]" class="fieldLabel">Pick up at</label>
+            <input type="text" name="order[pick_up_at]" value="<%= @order.pick_up_at %>" <%= placeholder( "Pick up at" ) %> />
+          </li>
+      
+          <li>
+            <label for="order[total]" class="fieldLabel">Total</label>
+            <input type="text" name="order[total]" value="<%= @order.total %>" <%= placeholder( "Total" ) %> />
+          </li>
+      
+          <li>
+            <label for="order[is_delivery]" class="fieldLabel">Is delivery</label>
+            <input type="text" name="order[is_delivery]" value="<%= @order.is_delivery %>" <%= placeholder( "Is delivery" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

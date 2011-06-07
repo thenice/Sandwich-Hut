@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Menu item:</b>
+  <%= @menu_item_default.menu_item_id %>
+</p>
+
+<p>
+  <b>Ingredients json:</b>
+  <%= @menu_item_default.ingredients_json %>
+</p>
+
+
+<%= link_to 'Edit', edit_menu_item_default_path(@menu_item_default) %> |
+<%= link_to 'Back', menu_item_defaults_path %>

@@ -1,0 +1,26 @@
+<h1>Menu Item Defaults</h1>
+
+<table>
+  <tr>
+    <th>Menu item</th>
+    <th>Ingredients</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menu_item_defaults.each do |menu_item_default| %>
+  <% menu_item = menu_item_default.menu_item %>
+  <tr>
+    <td><%= menu_item.name %></td>
+    <td><%= ingredients_string(menu_item) %></td>
+    <td><%= link_to 'Show', menu_item_default %></td>
+    <td><%= link_to 'Edit', edit_menu_item_default_path(menu_item_default) %></td>
+    <td><%= link_to 'Destroy', menu_item_default, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Menu item default', new_menu_item_default_path %>

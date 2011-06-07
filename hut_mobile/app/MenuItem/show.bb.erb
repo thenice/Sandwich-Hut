@@ -1,0 +1,36 @@
+<div id="pageTitle">
+	<h1><%= @menuitem.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @menuitem.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @menuitem.name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Description</td>
+        <td class="itemValue"><%= @menuitem.description%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">CategoryId</td>
+        <td class="itemValue"><%= @menuitem.category_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Price</td>
+        <td class="itemValue"><%= @menuitem.price%></td>
+      </tr>
+      
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @order.customer.full_name %>
+</p>
+
+<p>
+  <b>Pick up at:</b>
+  <%= @order.pick_up_at %>
+</p>
+
+
+<p>
+  <b>Ordered Items:</b>
+  <ul>
+    <% @order.ordered_items.each do |ordered_item| %>
+      <li><%= ordered_item.menu_item.name %> ($<%= ordered_item.menu_item.price %>)</li>
+        <ul>
+          <% ordered_item.menu_item.ingredients.each do |ingredient| %>
+            <li><%= ingredient.name %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  </ul>
+</p>
+
+
+<p>
+  <b>Total:</b>
+  <%= @order.total %>
+</p>
+
+<p>
+  <b>Is delivery:</b>
+  <%= @order.is_delivery %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

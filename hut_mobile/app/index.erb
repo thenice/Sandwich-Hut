@@ -1,0 +1,54 @@
+  <div class="pageTitle">
+    <h1>iHut</h1>
+  </div>
+
+
+  <div class="toolbar">
+    <% if SyncEngine::logged_in %>
+        <div class="leftItem blueButton">
+          <a href="<%= url_for :controller => :Settings, :action => :do_sync %>">Sync</a>
+        </div>
+        <div class="rightItem regularButton">
+          <a href="<%= url_for :controller => :Settings, :action => :logout %>">Logout</a>
+        </div>
+    <% else %>
+        <div class="rightItem regularButton">
+          <a href="<%= url_for :controller => :Settings, :action => :login %>">Login</a>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="content">
+    <ul>
+      <li>
+        <a href="Order/new">
+          <span class="title">Order now</span>
+          <span class="disclosure_indicator"/>
+        </a>
+      </li>
+      <li>
+        <a href="Category">
+          <span class="title">View our menu</span>
+          <span class="disclosure_indicator"/>
+        </a>
+      </li>
+      <li>
+        <a href="Customer/index">
+          <span class="title">Customers</span>
+          <span class="disclosure_indicator"/>
+        </a>
+      </li>
+      <li>
+        <a href="Order/index">
+          <span class="title">Orders</span>
+          <span class="disclosure_indicator"/>
+        </a>
+      </li>
+      <li>
+        <a href="MenuItemDefault">
+          <span class="title">Location</span>
+          <span class="disclosure_indicator"/>
+        </a>
+      </li>
+    </ul>
+  </div>

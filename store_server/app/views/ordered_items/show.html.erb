@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Menu item:</b>
+  <%= @ordered_item.menu_item_id %>
+</p>
+
+<p>
+  <b>Ingredients json:</b>
+  <%= @ordered_item.ingredients_json %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @ordered_item.total %>
+</p>
+
+<p>
+  <b>Special instructions:</b>
+  <%= @ordered_item.special_instructions %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @ordered_item.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_ordered_item_path(@ordered_item) %> |
+<%= link_to 'Back', ordered_items_path %>

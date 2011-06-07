@@ -1,0 +1,49 @@
+<div id="pageTitle">
+		<h1>Edit <%= @customer.email_address%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @customer.object %>
+    <%= link_to "Delete", :action => :delete, :id => @customer.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @customer.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Email address: </td>
+              			<td class="itemValue"><input type="text" name="customer[email_address]" value="<%= @customer.email_address %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Password: </td>
+              			<td class="itemValue"><input type="text" name="customer[password]" value="<%= @customer.password %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Payment method: </td>
+              			<td class="itemValue"><input type="text" name="customer[payment_method]" value="<%= @customer.payment_method %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Payment: </td>
+              			<td class="itemValue"><input type="text" name="customer[payment_id]" value="<%= @customer.payment_id %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Payment secret: </td>
+              			<td class="itemValue"><input type="text" name="customer[payment_secret]" value="<%= @customer.payment_secret %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Id: </td>
+              			<td class="itemValue"><input type="text" name="customer[id]" value="<%= @customer.id %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

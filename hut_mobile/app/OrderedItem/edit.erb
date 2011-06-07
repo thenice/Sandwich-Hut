@@ -1,0 +1,33 @@
+<div class="pageTitle">
+  <h1>Editing <%= @menuitem.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :new %>">Back</a>
+  </div>
+</div>
+
+<form method="POST" action="<%= url_for :action => :update, :id => @ordereditem.object %>">
+  <input type="hidden" name="ordereditem[menu_item_id]" value="<%= @menuitem.object %>"/>
+  <input type="hidden" name="ordereditem[order_id]" value="<%= ::Rho.get_app.current_order.object if ::Rho.get_app.is_ordering? %>"/>
+  
+<div class="content">
+  <h1><%= @menuitem.name %></h1>
+  <strong id = "total">$<%= @ordereditem.total %></strong><br />
+  <p><%= @menuitem.description %></p>
+  <strong>Select your ingredients</strong><br />
+  <ul class = "plastic">
+    <% Ingredient.find(:all).sort { |a,b| a.name <=> b.name }.each do |ingredient| %>
+      <li>
+        <input type="checkbox" name="ingredients_json[]" value="<%= ingredient.object  %>" <%= @selected.include?(ingredient.object) ? "checked" : "" %> /> <%= ingredient.name  %>
+      </li>
+    <% end %>
+  </ul>
+  <% if ::Rho.get_app.is_ordering? %>
+    <label for="special_instructions" class="fieldLabel">Special instructions</label>
+    <input type="text" name="ordereditem[special_instructions]" <%= @ordereditem.special_instructions %> />
+    <input type="submit" class="standardButton" value="Update"/><br /><br />
+  <% end %>
+</form>
+</div>

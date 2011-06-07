@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @menu_item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @menu_item.description %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @menu_item.category_id %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <%= @menu_item.ingredients.collect { |i| i.name }.join(", ") %>
+</p>
+
+
+<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
+<%= link_to 'Back', menu_items_path %>

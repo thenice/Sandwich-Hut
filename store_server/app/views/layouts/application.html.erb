@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StoreServer</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<p> <%= link_to "Customers", "/customers" %> | <%= link_to "Categories", "/categories" %> | <%= link_to "Menu Items", "/menu_items" %> | <%= link_to "Ingredients", "/ingredients" %> | <%= link_to "Menu Item Defaults", "/menu_item_defaults" %> | <%= link_to "Orders", "/orders" %> 
+</p>
+<hr />
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<div class="pageTitle">
+  <h1>Edit <%= @customer.email_address %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @customer.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @customer.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @customer.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="customer[email_address]" class="fieldLabel">Email address</label>
+            <input type="text" name="customer[email_address]" value="<%= @customer.email_address %>" <%= placeholder( "Email address" ) %> />
+          </li>
+      
+          <li>
+            <label for="customer[password]" class="fieldLabel">Password</label>
+            <input type="text" name="customer[password]" value="<%= @customer.password %>" <%= placeholder( "Password" ) %> />
+          </li>
+      
+          <li>
+            <label for="customer[payment_method]" class="fieldLabel">Payment method</label>
+            <input type="text" name="customer[payment_method]" value="<%= @customer.payment_method %>" <%= placeholder( "Payment method" ) %> />
+          </li>
+      
+          <li>
+            <label for="customer[payment_id]" class="fieldLabel">Payment</label>
+            <input type="text" name="customer[payment_id]" value="<%= @customer.payment_id %>" <%= placeholder( "Payment" ) %> />
+          </li>
+      
+          <li>
+            <label for="customer[payment_secret]" class="fieldLabel">Payment secret</label>
+            <input type="text" name="customer[payment_secret]" value="<%= @customer.payment_secret %>" <%= placeholder( "Payment secret" ) %> />
+          </li>
+      
+          <li>
+            <label for="customer[id]" class="fieldLabel">Id</label>
+            <input type="text" name="customer[id]" value="<%= @customer.id %>" <%= placeholder( "Id" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

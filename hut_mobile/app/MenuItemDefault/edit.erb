@@ -1,0 +1,32 @@
+<div class="pageTitle">
+  <h1>Edit <%= @menuitemdefault.menu_item_id %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @menuitemdefault.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @menuitemdefault.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @menuitemdefault.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="menuitemdefault[menu_item_id]" class="fieldLabel">Menu item</label>
+            <input type="text" name="menuitemdefault[menu_item_id]" value="<%= @menuitemdefault.menu_item_id %>" <%= placeholder( "Menu item" ) %> />
+          </li>
+      
+          <li>
+            <label for="menuitemdefault[ingredients_json]" class="fieldLabel">Ingredients json</label>
+            <input type="text" name="menuitemdefault[ingredients_json]" value="<%= @menuitemdefault.ingredients_json %>" <%= placeholder( "Ingredients json" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

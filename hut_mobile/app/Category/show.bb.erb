@@ -1,0 +1,23 @@
+<div id="pageTitle">
+	<h1><%= @category.name %></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @category.object %>
+</div>
+
+
+<div class="content">
+  <ul>
+    <% @menu_items.each do |menuitem| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => menuitem.object %>">
+            <span class="title"><%= menuitem.name %></span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+</div>

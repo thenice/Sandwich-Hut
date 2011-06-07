@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  pick_up_at: 2011-05-20 12:01:35
+  total: 1.5
+  is_delivery: false
+
+two:
+  customer_id: 1
+  pick_up_at: 2011-05-20 12:01:35
+  total: 1.5
+  is_delivery: false

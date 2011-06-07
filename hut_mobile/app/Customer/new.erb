@@ -1,0 +1,52 @@
+<div class="pageTitle">
+  <h1>Create a new Hut account</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :Setting, :action => :login %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @customer.object %>"/>
+    <ul>
+          <li>
+            <label for="customer[first_name]" class="fieldLabel">First Name</label>
+            <input type="text" name="customer[first_name]" <%=
+            placeholder("First Name") %> />
+          </li>
+          <li>
+            <label for="customer[last_name]" class="fieldLabel">Last Name</label>
+            <input type="text" name="customer[last_name]" <%=
+            placeholder("Last Name") %> />
+          </li>
+          <li>
+            <label for="customer[email_address]" class="fieldLabel">Email address</label>
+            <input type="text" name="customer[email_address]" <%=
+            placeholder("Email address") %> />
+          </li>
+      
+          <li>
+            <label for="customer[password]" class="fieldLabel">Password</label>
+            <input type="password" name="customer[password]" <%=
+            placeholder("Password") %> />
+          </li>
+          
+          <li>
+            <label for="customer[password_confirmation]" class="fieldLabel">Password Confirmation</label>
+            <input type="password" name="customer[password_confirmation]" <%=
+            placeholder("Password Confirmation") %> />
+          </li>
+      
+          <li>
+            <label for="customer[payment_method]" class="fieldLabel">Payment method</label>
+            <input type="text" name="customer[payment_method]" <%=
+            placeholder("Payment method") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create account"/>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<h1>Listing ordered_items</h1>
+
+<table>
+  <tr>
+    <th>Menu item</th>
+    <th>Ingredients json</th>
+    <th>Total</th>
+    <th>Special instructions</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ordered_items.each do |ordered_item| %>
+  <tr>
+    <td><%= ordered_item.menu_item_id %></td>
+    <td><%= ordered_item.ingredients_json %></td>
+    <td><%= ordered_item.total %></td>
+    <td><%= ordered_item.special_instructions %></td>
+    <td><%= ordered_item.status %></td>
+    <td><%= link_to 'Show', ordered_item %></td>
+    <td><%= link_to 'Edit', edit_ordered_item_path(ordered_item) %></td>
+    <td><%= link_to 'Destroy', ordered_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ordered item', new_ordered_item_path %>

@@ -1,0 +1,29 @@
+#Sources 
+:sources: 
+  Category: 
+    :poll_interval: 300
+  MenuItem: 
+    :poll_interval: 300
+  Ingredient: 
+    :poll_interval: 300
+  MenuItemDefault: 
+    :poll_interval: 300
+  Order: 
+    :poll_interval: 0
+  OrderedItem: 
+    :poll_interval: 0
+  Customer: 
+    :poll_interval: 200
+ 
+:development: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+:test: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+:production: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/

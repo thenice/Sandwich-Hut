@@ -1,0 +1,31 @@
+<div class="pageTitle">
+  <h1>New <%= @menuitemdefault.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @menuitemdefault.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="menuitemdefault[menu_item_id]" class="fieldLabel">Menu item</label>
+            <input type="text" name="menuitemdefault[menu_item_id]" <%=
+            placeholder("Menu item") %> />
+          </li>
+      
+          <li>
+            <label for="menuitemdefault[ingredients_json]" class="fieldLabel">Ingredients json</label>
+            <input type="text" name="menuitemdefault[ingredients_json]" <%=
+            placeholder("Ingredients json") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

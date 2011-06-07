@@ -1,0 +1,46 @@
+<div id="pageTitle">
+	<h1><%= @customer.email_address%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @customer.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">EmailAddress</td>
+        <td class="itemValue"><%= @customer.email_address%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Password</td>
+        <td class="itemValue"><%= @customer.password%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">PaymentMethod</td>
+        <td class="itemValue"><%= @customer.payment_method%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">PaymentId</td>
+        <td class="itemValue"><%= @customer.payment_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">PaymentSecret</td>
+        <td class="itemValue"><%= @customer.payment_secret%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Id</td>
+        <td class="itemValue"><%= @customer.id%></td>
+      </tr>
+      
+    </table>
+</div>

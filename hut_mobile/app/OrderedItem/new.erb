@@ -1,0 +1,55 @@
+<div class="pageTitle">
+  <h1>New <%= @ordereditem.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @ordereditem.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="ordereditem[menu_item_id]" class="fieldLabel">Menu item</label>
+            <input type="text" name="ordereditem[menu_item_id]" <%=
+            placeholder("Menu item") %> />
+          </li>
+      
+          <li>
+            <label for="ordereditem[order_id]" class="fieldLabel">Order</label>
+            <input type="text" name="ordereditem[order_id]" <%=
+            placeholder("Order") %> />
+          </li>
+      
+          <li>
+            <label for="ordereditem[ingredients_json]" class="fieldLabel">Ingredients json</label>
+            <input type="text" name="ordereditem[ingredients_json]" <%=
+            placeholder("Ingredients json") %> />
+          </li>
+      
+          <li>
+            <label for="ordereditem[total]" class="fieldLabel">Total</label>
+            <input type="text" name="ordereditem[total]" <%=
+            placeholder("Total") %> />
+          </li>
+      
+          <li>
+            <label for="ordereditem[special_instructions]" class="fieldLabel">Special instructions</label>
+            <input type="text" name="ordereditem[special_instructions]" <%=
+            placeholder("Special instructions") %> />
+          </li>
+      
+          <li>
+            <label for="ordereditem[status]" class="fieldLabel">Status</label>
+            <input type="text" name="ordereditem[status]" <%=
+            placeholder("Status") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

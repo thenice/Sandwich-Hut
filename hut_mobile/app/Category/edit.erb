@@ -1,0 +1,32 @@
+<div class="pageTitle">
+  <h1>Edit <%= @category.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @category.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @category.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @category.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="category[name]" class="fieldLabel">Name</label>
+            <input type="text" name="category[name]" value="<%= @category.name %>" <%= placeholder( "Name" ) %> />
+          </li>
+      
+          <li>
+            <label for="category[id]" class="fieldLabel">Id</label>
+            <input type="text" name="category[id]" value="<%= @category.id %>" <%= placeholder( "Id" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

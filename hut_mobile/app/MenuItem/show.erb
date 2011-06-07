@@ -1,0 +1,46 @@
+<div class="pageTitle">
+  <h1>Hut Menu</h1>
+</div>
+
+<div class="toolbar">
+  <% if SyncEngine::logged_in == 1 %>
+      <div class="leftItem blueButton">
+        <a href="<%= url_for :controller => :Settings, :action => :do_sync %>">Sync</a>
+      </div>
+      <div class="rightItem regularButton">
+        <% if ::Rho.get_app.is_ordering? %>
+          <a href="<%= url_for :controller => :Settings, :action => :do_sync %>">Start Ordering</a>
+        <% end %>
+        <a href="<%= url_for :controller => :Settings, :action => :logout %>">Logout</a>
+      </div>
+  <% else %>
+      <div class="rightItem regularButton">
+        <a href="<%= url_for :controller => :Settings, :action => :login %>">Login</a>
+      </div>
+  <% end %>
+</div>
+
+<form method="POST" action="<%= url_for :controller => :OrderedItem, :action => :create %>">
+  <input type="hidden" name="ordereditem[menu_item_id]" value="<%= @menuitem.object %>"/>
+  <input type="hidden" name="ordereditem[order_id]" value="<%= ::Rho.get_app.current_order.object if ::Rho.get_app.is_ordering? %>"/>
+  
+<div class="content">
+  <h1><%= @menuitem.name %></h1>
+  <strong>$<%= @menuitem.price %></strong><br />
+  <p><%= @menuitem.description %></p>
+  <strong>Select your ingredients</strong><br />
+  <ul class = "plastic">
+    <% Ingredient.find(:all).sort { |a,b| a.name <=> b.name }.each do |ingredient| %>
+      <li>
+        <input type="checkbox" name="ingredients_json[]" value="<%= ingredient.object  %>" <%= @selected.include?(ingredient.object) ? "checked" : "" %> /> <%= ingredient.name  %>
+      </li>
+    <% end %>
+  </ul>
+  <% if ::Rho.get_app.is_ordering? %>
+    <label for="special_instructions" class="fieldLabel">Special instructions</label>
+    <input type="text" name="ordereditem[special_instructions]" <%=
+    placeholder("Special instructions") %> />
+    <input type="submit" class="standardButton" value="Add to order"/>
+  <% end %>
+</form>
+</div>

@@ -1,0 +1,39 @@
+<div class="toolbar"></div>
+<div class="pageTitle">
+  <h1>Ordering</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @order.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">CustomerId</div>
+          <div class="itemValue"><%= @order.customer_id %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">PickUpAt</div>
+          <div class="itemValue"><%= @order.pick_up_at %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Total</div>
+          <div class="itemValue"><%= @order.total %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">IsDelivery</div>
+          <div class="itemValue"><%= @order.is_delivery %></div>
+        </li>
+    
+  </ul>
+</div>

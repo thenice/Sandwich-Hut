@@ -1,0 +1,43 @@
+<div class="pageTitle">
+  <h1>New <%= @menuitem.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @menuitem.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="menuitem[name]" class="fieldLabel">Name</label>
+            <input type="text" name="menuitem[name]" <%=
+            placeholder("Name") %> />
+          </li>
+      
+          <li>
+            <label for="menuitem[description]" class="fieldLabel">Description</label>
+            <input type="text" name="menuitem[description]" <%=
+            placeholder("Description") %> />
+          </li>
+      
+          <li>
+            <label for="menuitem[category_id]" class="fieldLabel">Category</label>
+            <input type="text" name="menuitem[category_id]" <%=
+            placeholder("Category") %> />
+          </li>
+      
+          <li>
+            <label for="menuitem[price]" class="fieldLabel">Price</label>
+            <input type="text" name="menuitem[price]" <%=
+            placeholder("Price") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>
